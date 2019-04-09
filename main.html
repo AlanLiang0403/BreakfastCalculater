@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="themes/green.css">
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="jquery.mobile.structure-1.4.5.min.css" />
+	<script src="jquery-2.1.4.min.js"></script>
+	<script src="jquery.mobile-1.4.5.min.js"></script>
+	<script>
+	function price() {
+		var e =document.form_price.egg;
+		var egg = parseInt(e.value) *30;
+
+		var b =document.form_price.burger;
+		var burger = parseInt(b.value) *50;
+
+		var n =document.form_price.noodle;
+		var noodle = parseInt(n.value) *60;
+
+		var s =document.form_price.sushi;
+		var sushi = parseInt(s.value) *30;
+
+		var m =document.form_price.milktea;
+		var milktea = parseInt(m.value) *25;
+
+		var price= egg + burger + noodle + sushi + milktea;
+
+		var amount;
+		if ($('#togo').is(':checked')) {
+		amount=price * 0.9;
+		amount=amount.toFixed(2);
+		}
+		else {
+		amount=price;
+		}
+		$('#final').val(amount);
+		
+		//alert("總價: " + price);
+		//return (price);
+	}
+
+	
+
+
+	</script>
+</head>
+<body>
+
+	<div data-role="page" id="home">
+		<div data-role="header">
+			<h1>早餐計算機</h1>
+		</div>
+		<div class="ui-content">
+		<div data-role="main" class="ui-content">
+		<form id="form_price" name="form_price">
+		<ul data-role="listview">
+
+		<img src="egg.jpg" width="100" height="100"/>
+		<div class="ui-field-contain">
+		<label for="egg">蛋餅 30元</label>
+		<input type="range" name="egg" id="egg" value="0" min="0" max="99" onchange="price()"/>
+		</div>
+
+		<img src="hamburger.png" width="100" height="100"/>
+		<div class="ui-field-contain">		
+		<label for="burger">漢堡 50元</label>
+		<input type="range" name="burger" id="burger" value="0" min="0" max="99" onchange="price()"/>
+		</div>
+
+		<img src="noodle.png" width="100" height="100"/>
+		<div class="ui-field-contain">		
+		<label for="noodle">鐵板麵 60元</label>
+		<input type="range" name="noodle" id="noodle" value="0" min="0" max="99" onchange="price()"/>
+		</div>
+
+		<img src="sushi.jpg" width="100" height="100"/>
+		<div class="ui-field-contain">		
+		<label for="sushi">壽司 45元</label>
+		<input type="range" name="sushi" id="sushi" value="0" min="0" max="99" onchange="price()"/>
+		</div>
+
+		<img src="milktea.png" width="100" height="100"/>
+		<div class="ui-field-contain">		
+		<label for="milktea">奶茶 25元</label>
+		<input type="range" name="milktea" id="milktea" value="0" min="0" max="99" onchange="price()"/>
+		</div>
+
+		<label for="togo">外帶</label>
+		<input type="checkbox" data-role="flipswitch" name="togo" id="togo" onchange="price()"/>
+
+		<div class="ui-field-contain">
+		<label for="final">總價 </label>
+		<input type="text" id="final"/>
+		</div>
+
+		</ul>
+		</form>
+		
+	</div>
+	
+	</div>
+
+</body>
+</html>
+
