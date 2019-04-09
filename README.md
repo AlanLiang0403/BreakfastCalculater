@@ -1,2 +1,2 @@
 # BreakfastCalculater
-JQuery mobile練習早餐計算機
+JQuery mobile練習_早餐計算機
